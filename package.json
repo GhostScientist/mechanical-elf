@@ -1,11 +1,39 @@
 {
   "name": "mechanical-elf",
   "version": "1.0.0",
-  "description": "MCP server for open graph image preview generation.",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "description": "Generate OpenGraph images from MDX frontmatter",
+  "main": "dist/index.js",
+  "bin": {
+    "og-gen": "dist/cli.js"
   },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsx src/cli.ts",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "opengraph",
+    "og",
+    "images",
+    "mdx",
+    "cli"
+  ],
   "author": "",
-  "license": "ISC"
+  "license": "MIT",
+  "dependencies": {
+    "@fontsource/inter": "^5.2.6",
+    "@resvg/resvg-js": "^2.6.0",
+    "commander": "^11.1.0",
+    "gray-matter": "^4.0.3",
+    "satori": "^0.10.11",
+    "sharp": "^0.33.2"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.5",
+    "tsx": "^4.7.0",
+    "typescript": "^5.3.3"
+  },
+  "engines": {
+    "node": ">=18"
+  }
 }
